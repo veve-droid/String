@@ -91,10 +91,9 @@ return 0;
 
 /// result: 2A5 = 677 ///
 //////// Substring ////////
-
 if(num==2){
 	char st1[64], st2[64];
-	int i, j, bump, len1, len2;
+	int i, j, bump=0, len1, len2;
 	
 	
 	printf("Enter the first string: ");
@@ -107,19 +106,17 @@ if(num==2){
 	len1 = strlen(st1);
 	len2 = strlen(st2);
 
+	//loops until str1 fits in str2
+	for(i=0; i<= len2 - len1; i++){
 	
-	for(j=0; st2[j] != '\0'; j++){
-	i=0;
-	
-		if(st1[i] == st2[j]){
-		for(bump=1; bump != 0 && st1[i+1] != '\0'; i++, j++)
+		if(st1[0] == st2[i]){ //checks if first char of str1 is in str2
+		for(j=0; st1[j] != '\0'; j++)
 		
-			if(st1[i+1] != st2[j+1])
+			if(st1[j] != st2[i+j])
 			bump = 0;
-			
-			else
-			bump++;
 		
+			else
+			bump = 1;
 		}
 	
 	}
